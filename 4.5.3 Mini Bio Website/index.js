@@ -13,7 +13,19 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-  res.send('Hello from basic server!');
+  res.render("index");
+});
+
+app.get('/contacts', (req, res) => {
+  res.render("contacts");
+});
+
+app.get('/hobbies', (req, res) => {
+  res.render("hobbies");
+});
+
+app.get('/about', (req, res) => {
+  res.render("about");
 });
 
 
