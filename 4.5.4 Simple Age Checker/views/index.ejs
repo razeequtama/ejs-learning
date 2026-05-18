@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.5.4 Simple Age Checker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <% if(!locals.age) { %>
+        <h1>Age Checker</h1>
+    <% }else if(age >= 18) { %>
+        <h1>You're an adult.</h1>
+    <% }else if(age < 18) { %>
+        <h1>You're a minor.</h1>
+    <% } %>
+    <form action="/submit" method="POST">
+        <input type="text" name="age" id="age-input" placeholder="Insert age here">
+        <button type="submit">Check</button>
+    </form>
+</body>
+</html>
