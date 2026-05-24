@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.5.5 To Do List</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+    <h1>Hello</h1>
+    <input type="text" name="task-input" id="task-input" placeholder="insert new task"><button id="submit-task">Add Task</button>
+    <div class="tasks-div">
+        <% to_do_list.forEach(list => { %>
+            <div class="task-div">
+                <h3>Date created: <br> <%= list.date %> <br> <%= list.time %></h3>
+                <h3>Task: <br> <%= list.task %></h3>
+            </div>
+        <%});%>
+    </div>
+    <script>
+        const tasks = <%- JSON.stringify(to_do_list) %>;
+        const input = document.getElementById("task-input");
+        const submitBtn = document.getElementById("submit-task");
+
+        submitBtn.addEventListener("click", () => {
+
+            if(!input.value)
+            {
+                alert("Please insert a task!");
+                return;
+            }
+
+            let date = new Date();
+            let newTask = {
+                date: date.toDateString(),
+                time: date.toLocaleTimeString(),
+                task: input.value
+            };
+
+            tasks.push(newTask);
+
+            let newDiv = document.createElement("div");
+            newDiv.classList.add("task-div");
+            newDiv.innerHTML = `
+                <h3>Date created: <br> ${newTask.date} <br> ${newTask.time}</h3>
+                <h3>Task: <br> ${newTask.task}</h3>
+            `
+            document.querySelector(".tasks-div").appendChild(newDiv);
+
+            input.value = "";
+        });
+        console.log(tasks[0].task);
+    </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+.task-div{
+    width: 200px;
+    height: 200px;
+    background-color: yellow;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+}
+
+.tasks-div{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
