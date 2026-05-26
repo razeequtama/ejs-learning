@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.5.6 Guestbook App</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title-container">
+            <h1>Guestbook App</h1>
+            <form action="/" method="POST">
+                <label for="name"><strong>Name: </strong></label><input type="text" name="name" id="name-input" placeholder="Enter your name"> <br>
+                <label for="name"><strong>Message: </strong></label><input type="text" name="message" id="message-input" placeholder="Enter your message"> <br>
+                <button type="submit">Submit</button> <button type="reset">Reset</button>
+            </form>
+        </div>
+        <div class="messages-container" id="messages-container-id">
+            <% messages.forEach(message => { %>
+                <div class="message-container">
+                    <h3>Message from <%=message.from%></h3>
+                    <button>view</button>
+                </div>
+            <%})%>
+            
+        </div>
+    </div>
+    <script src="/js/script.js"></script>
+</body>
+</html>
