@@ -11,21 +11,44 @@
         <div class="title-container">
             <h1>Guestbook App</h1>
             <form action="/" method="POST">
-                <label for="name"><strong>Name: </strong></label><input type="text" name="name" id="name-input" placeholder="Enter your name"> <br>
-                <label for="name"><strong>Message: </strong></label><input type="text" name="message" id="message-input" placeholder="Enter your message"> <br>
-                <button type="submit">Submit</button> <button type="reset">Reset</button>
+                <label for="name-input"><strong>Name: </strong></label>
+                <input type="text" name="nameInput" id="name-input" placeholder="Enter your name">
+                <label for="message-input"><strong>Message: </strong></label>
+                <input type="text" name="messageInput" id="message-input" placeholder="Enter your message">
+                <button id="add-button" type="submit">Add</button> <button type="reset">Reset</button>
             </form>
         </div>
         <div class="messages-container" id="messages-container-id">
             <% messages.forEach(message => { %>
                 <div class="message-container">
                     <h3>Message from <%=message.from%></h3>
-                    <button>view</button>
+                    <form action="/message" method="GET">
+                        <input 
+                            type="hidden"
+                            name="messageId"
+                            value="<%= message.id %>">
+                        <button type="submit">
+                            view
+                        </button>
+                    </form>
                 </div>
             <%})%>
             
         </div>
     </div>
-    <script src="/js/script.js"></script>
+    <script>
+        const nameInputBtn = document.getElementById("name-input");
+        const messageInputBtn = document.getElementById("message-input");
+        const addBtn = document.getElementById("add-button");
+
+        const form = document.querySelector("form");
+
+        form.addEventListener("submit", (e) => {
+            if (!nameInputBtn.value || !messageInputBtn.value) {
+                e.preventDefault();
+                alert("Please input both fields!");
+            }
+        });
+    </script>
 </body>
 </html>
