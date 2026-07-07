@@ -1,40 +1,47 @@
-        *{
-            margin: 0;
-            padding: 0;
-        }
+*{
+    margin: 0;
+    padding: 0;
+}
 
-        .container{
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            
-        }
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+}
 
-        .container *{
-            margin: 7px 0px;
-        }
+.container *{
+    margin: 7px 0px;
+}
 
-        .notes-container{
-            width: 1000px;
-            height: 500px;
-            outline: 2px black solid;
-            overflow-y: scroll;
+.notes-container{
+    width: 1000px;
+    height: 500px;
+    outline: 2px black solid;
+    overflow-y: scroll;
 
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-auto-rows: 300px;
-            gap: 30px;
-        }
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: 300px;
+    gap: 30px;
+}
 
-        #color-input{
-            width: 45px;
-            height: 45px;
-            padding: 0;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            background: none;
-        }
+#color-input{
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: none;
+}
+
+.notes-container div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

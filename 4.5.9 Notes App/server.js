@@ -1,7 +1,7 @@
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
-import notes from './notes.js';
+import {notes} from './notes.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -26,6 +26,21 @@ app.get("/", (r, s) => {
 
 app.get("/notes", (r, s) => {
     s.render("index", {notes});
+})
+
+app.post("/delete", (r, s) => {
+    let targetID = Number(r.body.id);
+    // console.log(targetID);
+
+    // 1. Find the index of the item
+    const noteIndex = notes.findIndex((n) => n.id === targetID);
+
+    // 2. If found (index is not -1), remove exactly 1 item at that position
+    if (noteIndex !== -1) {
+        notes.splice(noteIndex, 1);
+    }
+
+    s.redirect("/notes");
 })
 
 app.post("/create", (r, s) => {
