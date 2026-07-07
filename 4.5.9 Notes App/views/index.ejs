@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.5.9 Notes App</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Notes</h1>
+        <form action="/create" method="POST">
+            <label for="author">Author:</label>
+            <input type="text" name="author" id="author-input" placeholder="Insert author's name">
+            <label for="message">Message:</label>
+            <input type="text" name="message" id="message-input" placeholder="Insert message">
+            
+            <button type="submit" class="btn">Create</button>
+            <br>
+            <label for="color">Choose note color:</label>
+            <input type="color" name="color" id="color-input" value="#E0F7FA">
+        </form>
+        <div class="notes-container">
+            <% notes.forEach((note) => { %>
+                <div style="background-color: <%= note.color %>;">
+                    <h3><%= note.author %></h3>
+                    <p><%= note.message %></p>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</body>
+</html>
