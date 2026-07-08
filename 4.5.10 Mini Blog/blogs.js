@@ -1,5 +1,6 @@
 export let blogs = [
   {
+    id: 0,
     title: "The Power of Small Daily Habits",
     content: [
       "Success is often built through small, consistent actions rather than dramatic changes. Simple habits like reading for 15 minutes, drinking enough water, or planning your day can create lasting improvements over time.",
@@ -8,6 +9,7 @@ export let blogs = [
     ]
   },
   {
+    id: 1,
     title: "Why Taking Breaks Makes You More Productive",
     content: [
       "Many people believe working longer hours leads to better results, but regular breaks can actually improve focus and creativity. Stepping away from your work gives your mind time to recharge.",
@@ -16,6 +18,7 @@ export let blogs = [
     ]
   },
   {
+    id: 2,
     title: "The Benefits of Learning Something New Every Day",
     content: [
       "Learning doesn't stop after school or college. Picking up new skills, reading articles, or exploring different topics keeps your mind active and helps you adapt to change.",
