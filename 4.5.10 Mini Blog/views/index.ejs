@@ -19,6 +19,24 @@
             width: 1000px;
             overflow-y: scroll;
             outline: 2px black solid;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-auto-rows: 300px;
+            gap: 10px;
+    
+        }
+
+        .blogs-container div{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            
+            background-color: rgb(183, 215, 205);
         }
     </style>
 </head>
@@ -26,8 +44,21 @@
     <div class="container">
         <h1>BLOGS</h1>
         <div class="blogs-container">
-
+            <% blogs.forEach(blog => { %>
+                <div>
+                    <h2><%= blog.title %></h2>
+                    <a href="/blogs/<%= blog.id %>">
+                        View
+                    </a>
+                    <form action="/blogs/<%= blog.id %>?_method=DELETE" method="POST">
+                        <button type="submit" class="btn">
+                            Delete
+                        </button>
+                    </form>
+                </div>
+            <% }) %>
         </div>
     </div>
 </body>
 </html>
+
