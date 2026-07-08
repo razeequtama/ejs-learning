@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.5.11 Simple Quiz</title>
+</head>
+<body>
+    <form action="/answer" method="POST">
+        <h3>The answer is 1</h1>
+        <label><input type="radio" name="q1" value="1">1</label><br>
+        <label><input type="radio" name="q1" value="2">2</label><br>
+        <label><input type="radio" name="q1" value="3">3</label><br>
+
+        <h3>The answer is 2</h1>
+        <label><input type="radio" name="q2" value="1">1</label><br>
+        <label><input type="radio" name="q2" value="2">2</label><br>
+        <label><input type="radio" name="q2" value="3">3</label><br>
+
+        <h3>The answer is 3</h1>
+        <label><input type="radio" name="q3" value="1">1</label><br>
+        <label><input type="radio" name="q3" value="2">2</label><br>
+        <label><input type="radio" name="q3" value="3">3</label><br>
+
+        <h3>The answer is 1</h1>
+        <label><input type="radio" name="q4" value="1">1</label><br>
+        <label><input type="radio" name="q4" value="2">2</label><br>
+        <label><input type="radio" name="q4" value="3">3</label><br>
+
+        <h3>The answer is 2</h1>
+        <label><input type="radio" name="q5" value="1">1</label><br>
+        <label><input type="radio" name="q5" value="2">2</label><br>
+        <label><input type="radio" name="q5" value="3">3</label><br>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+        <p>Correct: <%= correct%></p>
+        <p>Wrong: <%= wrong%></p>
+    </form>
+</body>
+</html>
