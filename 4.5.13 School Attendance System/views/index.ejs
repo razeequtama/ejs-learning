@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.5.13 School Attendance System</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .students-container{
+            width: 500px;
+            height: auto;
+            outline: black 2px solid;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .student {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            align-items: center;
+        }
+
+        .student input[type="checkbox"] {
+            justify-self: center;
+            align-self: center;
+            width: 18px;
+            height: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Students Attendance</h1>
+        <div class="students-container">
+            <form action="/verify" method="POST">
+                <% students.forEach(student => { %>
+                <div class="student">
+                    <h1><%= student.name %></h1>
+                    <input name="attendance" type="checkbox" <%= student.attends ? "checked" : "" %>>
+                </div>
+                <% }) %>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+        </div>
+    </div>
+</body>
+</html>
