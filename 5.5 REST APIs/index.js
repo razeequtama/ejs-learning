@@ -15,7 +15,6 @@ const API_URL = process.env.API_URL;
 // Use the Secrets API documentation to figure out what each route expects and how to work with it.
 // https://secrets-api.appbrewery.com/
 
-//TODO 1: Add your own bearer token from the previous lesson.
 const yourBearerToken = process.env.BEARER_TOKEN;
 const config = {
   headers: { Authorization: `Bearer ${yourBearerToken}` },
@@ -65,7 +64,7 @@ app.post("/put-secret", async (req, res) => {
 app.post("/patch-secret", async (req, res) => {
   const searchId = req.body.id;
   try {
-    const response = await axios.put(API_URL + "/secrets/" + searchId, req.body, config);
+    const response = await axios.patch(API_URL + "/secrets/" + searchId, req.body, config);
     res.render("index.ejs", {content : JSON.stringify(response.data)});
   } catch (error) {
     res.render("index.ejs", {content: error});
